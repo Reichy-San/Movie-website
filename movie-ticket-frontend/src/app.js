@@ -49,6 +49,5 @@ function searchMovie(event) {
     const query = document.getElementById("searchQuery").value;
     console.log(`Searching for: ${query}`);
     // Optional: Redirect to search results page
-    // For now, it just logs the search query to the console
     alert(`Search for: ${query}`);
 }

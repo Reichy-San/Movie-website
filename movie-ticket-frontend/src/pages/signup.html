@@ -33,30 +33,7 @@
       </form>
     </div>
 
-    <script>
-      document
-        .getElementById("signupForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const username = document.getElementById("signupUsername").value;
-          const email = document.getElementById("signupEmail").value;
-          const password = document.getElementById("signupPassword").value;
-          const message = document.getElementById("signupMessage");
-
-          if (username && email && password) {
-            // Save user to localStorage (for simulation only)
-            const user = { username, email, password };
-            localStorage.setItem(email, JSON.stringify(user));
-            message.textContent =
-              "Account created successfully! Redirecting to login...";
-            setTimeout(() => {
-              window.location.href = "./login.html";
-            }, 2000);
-          } else {
-            message.textContent = "Please fill in all fields";
-          }
-        });
-    </script>
+    <!-- Link to the external JavaScript file -->
+    <script src="signup.js"></script>
   </body>
 </html>
