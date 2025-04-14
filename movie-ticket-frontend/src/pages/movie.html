@@ -2,58 +2,155 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>The 100 - Movie Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pirates of the Caribbean - MHD</title>
     <link rel="stylesheet" href="../styles/movie.css" />
+    <link rel="shortcut icon" href="../images/IMDB.jpeg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
-    <div class="movie-container">
-      <h1 id="movie-title">The 100</h1>
-      <p><strong>Rating:</strong> <span id="rating">8.5</span></p>
-      <p><strong>Year:</strong> <span id="year">2010</span></p>
-      <p><strong>Duration:</strong> <span id="duration">1h 30min</span></p>
-      <p><strong>Language:</strong> <span id="language">English</span></p>
 
-      <div class="trailer">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/ia1Fbg96vL0"
-          title="YouTube trailer"
-          frameborder="0"
-          allowfullscreen
-        >
-        </iframe>
+  <body>
+    <!-- Scroll Progress -->
+    <div id="progress"><span id="progress-value"></span></div>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+      <input type="checkbox" id="menu-btn" class="menu-btn" />
+      <label for="menu-btn" class="menu-icon"
+        ><span class="nav-icon"></span
+      ></label>
+      <a href="./homepage.html" class="logo">Movies<span>.hd</span></a>
+      <ul class="menu">
+        <li><a href="./homepage.html">Home</a></li>
+        <li><a href="#">Genre</a></li>
+        <li><a href="./Tvshow.html">TV Shows</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <form action="" class="search-box">
+        <input type="text" placeholder="Search Movie" required />
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </nav>
+
+    <!-- Movie Banner -->
+    <section class="movie-banner">
+      <div class="m-banner-img">
+        <img src="../images/p1.jpeg" alt="Pirates of the Caribbean Poster" />
       </div>
 
-      <button id="playBtn">▶ Play Movie</button>
+      <div class="banner-container">
+        <div class="title-container">
+          <div class="title-top">
+            <div class="movie-title">
+              <h1>Pirates of the Caribbean: Salazar's Revenge</h1>
+            </div>
+            <div class="more-about-movie">
+              <span class="quality">Full HD</span>
+              <div class="rating">
+                8.2 <img src="../images/IMDB.jpeg" alt="IMDB" />
+              </div>
+              <span>28 August 2017</span>
+              <span>87min</span>
+            </div>
+            <div class="language"><span>English</span></div>
+          </div>
 
-      <div id="videoModal" class="modal" style="display: none">
-        <div class="modal-content">
-          <video id="movieVideo" width="100%" controls>
-            <source src="path_to_video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <button id="closeBtn">✖ Close</button>
+          <div class="title-bottom">
+            <div class="category">
+              <strong>Category</strong><br />
+              <a href="#">Horror</a>, <a href="#">Mystery</a>,
+              <a href="#">Thriller</a>
+            </div>
+            <a href="javascript:void(0)" class="watch-btn">Watch Trailer</a>
+          </div>
+        </div>
+
+        <div class="play-btn-container">
+          <div class="play-btn">
+            <a href="javascript:void(0)"><i class="fas fa-play"></i></a>
+          </div>
+        </div>
+
+        <!-- Video Popup -->
+        <div class="play">
+          <a href="javascript:void(0)" class="close-movie"
+            ><i class="fas fa-times"></i
+          ></a>
+          <div class="play-movie">
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/XibzC-e_s5M"
+              title="Movie Trailer"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <script>
-      const playBtn = document.getElementById("playBtn");
-      const closeBtn = document.getElementById("closeBtn");
-      const videoModal = document.getElementById("videoModal");
-      const movieVideo = document.getElementById("movieVideo");
+    <!-- Movie Description -->
+    <section class="movie-details">
+      <strong>Pirates of the Caribbean: Salazar's Revenge</strong>
+      <p>
+        The film continues the adventures of Captain Jack Sparrow as he is
+        pursued by the ghostly Captain Salazar and his deadly crew. They escape
+        the Devil’s Triangle, hell-bent on killing every pirate at sea.
+      </p>
+    </section>
 
-      playBtn.addEventListener("click", () => {
-        videoModal.style.display = "block";
-        movieVideo.play();
-      });
+    <!-- Screenshots -->
+    <section class="screenshots">
+      <strong>Screenshots</strong>
+      <div class="screen-s-container">
+        <img src="../images/p2.jpeg" alt="Screenshot 1" />
+        <img src="../images/p3.jpeg" alt="Screenshot 2" />
+        <img src="../images/p4.jpeg" alt="Screenshot 3" />
+        <img src="../images/p5.jpeg" alt="Screenshot 4" />
+      </div>
+    </section>
 
-      closeBtn.addEventListener("click", () => {
-        videoModal.style.display = "none";
-        movieVideo.pause();
-        movieVideo.currentTime = 0;
-      });
-    </script>
+    <!-- Download Links -->
+    <section class="download-movie">
+      <div class="download-container">
+        <div class="download-box">
+          <span><i class="fas fa-server"></i> Server 1</span>
+          <span>English</span>
+          <span>480p</span>
+          <a href="https://example.com/download480" download>Download</a>
+        </div>
+        <div class="download-box">
+          <span><i class="fas fa-server"></i> Server 2</span>
+          <span>English</span>
+          <span>720p</span>
+          <a href="#">Download</a>
+        </div>
+        <div class="download-box">
+          <span><i class="fas fa-server"></i> Server 3</span>
+          <span>English</span>
+          <span>1080p</span>
+          <a href="#">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <a href="./homepage.html" class="logo">Movies<span>hd</span></a>
+      <span class="copyright">© 2025 GoingToInternet</span>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../scripts/movie.js"></script>
   </body>
 </html>

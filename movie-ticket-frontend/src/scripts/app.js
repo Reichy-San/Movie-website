@@ -40,7 +40,7 @@ featuredMovies.forEach((movie) => {
 function logout() {
     sessionStorage.removeItem("loggedInUser");
     alert("You have been logged out.");
-    window.location.href = "login.html";
+    window.location.href = "./pages/login.html";
 }
 
 // Search function

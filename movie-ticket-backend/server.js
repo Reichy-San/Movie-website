@@ -1,28 +1,36 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
-const connectDB = require("./config/db");
+// Load environment variables from .env file
+require('dotenv').config();
 
-dotenv.config();
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/db');
+const movieRoutes = require('./routes/Movie');
 
 const app = express();
 
-// Connect to MongoDB
-connectDB(); // 🔁 This replaces the inline mongoose.connect()
+// Get MongoDB URI from the .env file
+const MONGO_URI = process.env.MONGO_URI;
 
-// Middleware
-app.use(bodyParser.json());
+console.log("MongoDB URI:", MONGO_URI);
+
+if (!MONGO_URI) {
+    console.error("❌ MongoDB URI is undefined. Please check your .env file.");
+    process.exit(1);  // Exit the application if URI is not found
+}
+
+// Connect to MongoDB without deprecated options
+const mongoose = require('mongoose');
+mongoose.connect(MONGO_URI)
+    .then(() => console.log("✅ MongoDB connected successfully"))
+    .catch((err) => console.error("❌ MongoDB connection error:", err));
+
+// Middlewares
+app.use(cors());
+app.use(express.json());
 
 // Routes
-const authRoutes = require("./routes/AuthRoutes");
-const movieRoutes = require("./routes/MovieRoutes");
+app.use('/api/movies', movieRoutes);
 
-// Use routes
-app.use("/api/auth", authRoutes);
-app.use("/api/movies", movieRoutes);
-
-// Start server
+// Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`🚀 Server is running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

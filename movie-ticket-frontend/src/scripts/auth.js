@@ -1,61 +1,54 @@
-// Helper: Save user
-const saveUser = (email, password, username = "") => {
-    const user = { email, password, username };
-    localStorage.setItem(email, JSON.stringify(user));
-};
+// Store test value to check if localStorage works
+localStorage.setItem("test", "value");
+console.log(localStorage.getItem("test")); // Should print 'value'
 
-// Helper: Get user
-const getUser = (email) => {
-    const data = localStorage.getItem(email);
-    return data ? JSON.parse(data) : null;
-};
-
-// Signup
+// Handle signup
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
-    signupForm.addEventListener("submit", (e) => {
+    signupForm.addEventListener("submit", function (e) {
         e.preventDefault();
+
         const username = document.getElementById("signupUsername").value;
         const email = document.getElementById("signupEmail").value;
         const password = document.getElementById("signupPassword").value;
+        const message = document.getElementById("signupMessage");
 
-        // Check if the user already exists
-        if (getUser(email)) {
-            document.getElementById("signupMessage").innerText = "User already exists!";
-            return;
+        if (username && email && password) {
+            const user = { username, email, password };
+            localStorage.setItem(email, JSON.stringify(user));
+            message.textContent = "Account created successfully! Redirecting to login...";
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 2000);
+        } else {
+            message.textContent = "Please fill in all fields";
         }
-
-        // Save user data
-        saveUser(email, password, username);
-        document.getElementById("signupMessage").innerText = "Signup successful! Redirecting to login...";
-
-        // Redirect to login page after 2 seconds
-        setTimeout(() => window.location.href = "login.html", 2000);
     });
 }
 
-// Login
+// Handle login
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
+    loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        const email = document.getElementById("loginEmail").value;
-        const password = document.getElementById("loginPassword").value;
 
-        // Retrieve user data
-        const user = getUser(email);
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const message = document.getElementById("loginMessage");
 
-        // Check credentials
-        if (!user || user.password !== password) {
-            document.getElementById("loginMessage").innerText = "Invalid credentials!";
-            return;
+        if (email && password) {
+            const storedUser = JSON.parse(localStorage.getItem(email));
+            if (storedUser && storedUser.password === password) {
+                sessionStorage.setItem("loggedInUser", email);
+                message.textContent = "Login successful! Redirecting to homepage...";
+                setTimeout(() => {
+                    window.location.href = "homepage.html";
+                }, 2000);
+            } else {
+                message.textContent = "Invalid email or password";
+            }
+        } else {
+            message.textContent = "Please fill in all fields";
         }
-
-        // Store user session
-        sessionStorage.setItem("loggedInUser", JSON.stringify(user));
-        document.getElementById("loginMessage").innerText = "Login successful! Redirecting...";
-
-        // Redirect to homepage after 2 seconds
-        setTimeout(() => window.location.href = "homepage.html", 2000);
     });
 }
