@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The 100 - TV Show</title>
+    <link rel="stylesheet" href="../styles/tv.show.css" />
+    <!-- Your custom styles -->
+  </head>
+  <body>
+    <!-- Scroll Progress Bar -->
+    <div id="progress">
+      <span id="progress-value"></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+      <input type="checkbox" class="menu-btn" id="menu-btn" />
+      <label for="menu-btn" class="menu-icon">
+        <span class="nav-icon"></span>
+      </label>
+      <a href="./homepage.html" class="logo">TVZone<span>.hd</span></a>
+      <ul class="menu">
+        <li><a href="./homepage.html">Home</a></li>
+        <li><a href="#">Genre</a></li>
+        <li><a href="./Tvshow.html">TV Shows</a></li>
+        <li><a href="./movie.html">Movies</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <form action="" class="search-box">
+        <input
+          type="text"
+          placeholder="Search Show"
+          class="search-input"
+          required
+        />
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </nav>
+
+    <!-- TV Show Banner -->
+    <section class="tvshow-banner">
+      <div class="m-banner-img">
+        <img src="../images/post 1.jpeg" alt="TV Show Banner" />
+      </div>
+      <div class="banner-container">
+        <div class="title-container">
+          <div class="title-top">
+            <div class="tvshow-title">
+              <h1>The 100</h1>
+            </div>
+            <div class="more-about-tvshow">
+              <span class="quality">HD</span>
+              <div class="rating">
+                9.1 <img src="../images/IMDB.jpeg" alt="IMDb" />
+              </div>
+              <span>Season 1</span>
+              <span>10 Episodes</span>
+              <span>2024</span>
+            </div>
+            <div class="language">
+              <span>English</span>
+            </div>
+          </div>
+          <div class="title-bottom">
+            <div class="category">
+              <strong>Genre</strong><br />
+              <a href="#">Drama</a>, <a href="#">Sci-Fi</a>,
+              <a href="#">Thriller</a>
+            </div>
+            <a
+              href="https://www.youtube.com/watch?v=ia1Fbg96vL0"
+              class="watch-btn"
+              target="_blank"
+              >Watch Trailer</a
+            >
+          </div>
+        </div>
+
+        <!-- Play Button -->
+        <div class="play-btn-container">
+          <div class="play-btn">
+            <a href="javascript:void(0)" id="playBtn">
+              <i class="fas fa-play"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Trailer Popup -->
+        <div id="videoModal" class="play" style="display: none">
+          <a href="javascript:void(0)" class="close-movie" id="closeBtn">
+            <i class="fas fa-times"></i>
+          </a>
+          <div class="play-movie">
+            <iframe
+              width="100%"
+              height="500px"
+              src="https://www.youtube.com/embed/xd8rPw2V_Vg"
+              title="TV Show Trailer"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TV Show Description -->
+    <section class="tvshow-details">
+      <strong>TV Show Description</strong>
+      <p>Enter a short summary or description of the TV show...</p>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots">
+      <strong>ScreenShots</strong>
+      <div class="screen-s-container">
+        <img src="../images/post 2.jpeg" alt="Screenshot 1" />
+        <img src="../images/post 3.jpeg" alt="Screenshot 2" />
+        <img src="../images/post 4.jpeg" alt="Screenshot 3" />
+        <img src="../images/post 5.jpeg" alt="Screenshot 4" />
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-tvshow">
+      <div class="download-container">
+        <div class="download-box">
+          <span><i class="fas fa-server"></i> Server 1</span>
+          <span>English</span>
+          <span>480p</span>
+          <a href="#" target="_blank">Download</a>
+        </div>
+        <div class="download-box">
+          <span><i class="fas fa-server"></i> Server 2</span>
+          <span>English</span>
+          <span>720p</span>
+          <a href="#" target="_blank">Download</a>
+        </div>
+        <div class="download-box">
+          <span><i class="fas fa-server"></i> Server 3</span>
+          <span>English</span>
+          <span>1080p</span>
+          <a href="#" target="_blank">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <a href="./homepage.html" class="logo">TVZone<span>hd</span></a>
+      <span class="copyright">Copyright 2025 - All rights reserved</span>
+    </footer>
+
+    <script>
+      // Play trailer logic
+      document.getElementById("playBtn").addEventListener("click", function () {
+        document.getElementById("videoModal").style.display = "block";
+      });
+
+      // Close trailer popup
+      document
+        .getElementById("closeBtn")
+        .addEventListener("click", function () {
+          document.getElementById("videoModal").style.display = "none";
+        });
+
+      // Scroll progress logic
+      window.addEventListener("scroll", function () {
+        const scrollProgress = document.getElementById("progress");
+        const pos = document.documentElement.scrollTop;
+        const calcHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrollValue = Math.round((pos * 100) / calcHeight);
+        document.getElementById(
+          "progress-value"
+        ).style.width = `${scrollValue}%`;
+      });
+    </script>
+  </body>
+</html>

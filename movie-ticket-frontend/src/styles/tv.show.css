@@ -1,327 +1,326 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Fonts */
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #111;
-    color: #fff;
-  }
-  
-  /* Scroll Progress */
-  #progress {
-    position: fixed;
-    width: 100%;
-    height: 5px;
-    background: #2b2f38;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  #progress-value {
-    display: block;
-    height: 100%;
-    width: 0;
-  }
-  
-  /* Navigation Bar */
-  .navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #1c1c1c;
-    padding: 15px 40px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .navigation .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navigation .logo span {
-    color: #e70634;
-  }
-  
-  .navigation .menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navigation .menu li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    transition: 0.3s;
-  }
-  
-  .navigation .menu li a:hover {
-    color: #e70634;
-  }
-  
-  .search-box {
-    display: flex;
-  }
-  
-  .search-input {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px 0 0 3px;
-    outline: none;
-  }
-  
-  .search-box button {
-    background-color: #e70634;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
-  }
-  
-  /* TV Show Banner */
-  .tvshow-banner {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .m-banner-img img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    opacity: 0.4;
-  }
-  
-  .banner-container {
-    position: absolute;
-    top: 0;
-    padding: 50px;
-    width: 100%;
-    color: #fff;
-  }
-  
-  .title-container h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-  }
-  
-  .more-about-tvshow {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .more-about-tvshow .quality {
-    background: #e70634;
-    padding: 4px 8px;
-    border-radius: 4px;
-  }
-  
-  .more-about-tvshow .rating {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .more-about-tvshow img {
-    width: 25px;
-  }
-  
-  .language {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
-  .title-bottom {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .category a {
-    color: #e70634;
-    text-decoration: none;
-    margin-right: 5px;
-  }
-  
-  .watch-btn {
-    background-color: #e70634;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  /* Play Button */
-  .play-btn-container {
-    position: absolute;
-    right: 40px;
-    bottom: 40px;
-  }
-  
-  .play-btn a {
-    background-color: #e70634;
-    color: white;
-    font-size: 24px;
-    padding: 20px;
-    border-radius: 50%;
-    text-decoration: none;
-  }
-  
-  /* Play Video */
-  .play {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .play.active-popup {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .close-movie {
-    color: white;
-    font-size: 30px;
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    cursor: pointer;
-  }
-  
-  /* Description */
-  .tvshow-details {
-    padding: 40px;
-    font-size: 18px;
-    background: #1c1c1c;
-  }
-  
-  /* Screenshots */
-  .screenshots {
-    padding: 40px;
-    background-color: #111;
-  }
-  
-  .screen-s-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 15px;
-  }
-  
-  .screen-s-container img {
-    width: calc(25% - 15px);
-    border-radius: 8px;
-    transition: transform 0.3s;
-  }
-  
-  .screen-s-container img:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Download Section */
-  .download-tvshow {
-    padding: 40px;
-    background: #1c1c1c;
-  }
-  
-  .download-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .download-box {
-    background-color: #2b2f38;
-    padding: 20px;
-    border-radius: 10px;
-    flex: 1;
-    min-width: 250px;
-    color: white;
-  }
-  
-  .download-box span {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .download-box a {
-    background-color: #e70634;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-    border-radius: 5px;
-  }
-  
-  /* Footer */
-  footer {
-    padding: 20px;
-    text-align: center;
-    background: #111;
-  }
-  
-  footer .logo {
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  footer .logo span {
-    color: #e70634;
-  }
-  
-  footer .copyright {
-    display: block;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #aaa;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .banner-container {
-      padding: 20px;
-    }
-  
-    .title-container h1 {
-      font-size: 32px;
-    }
-  
-    .screen-s-container img {
-      width: calc(50% - 10px);
-    }
-  
-    .download-container {
-      flex-direction: column;
-    }
-  
-    .title-bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-  }
-  
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2b2f38;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Scroll Progress Bar */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #2b2f38;
+  z-index: 1000;
+}
+
+#progress-value {
+  height: 100%;
+  background: #e70634;
+  width: 0;
+  transition: width 0.2s ease-out;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #222;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.logo span {
+  color: #e70634;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu li {
+  list-style-type: none;
+}
+
+.menu li a {
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #e70634;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+}
+
+.search-input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.search-box button {
+  background: #e70634;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.search-box button i {
+  color: white;
+}
+
+/* TV Show Banner */
+.tvshow-banner {
+  position: relative;
+  padding: 40px 0;
+  text-align: center;
+  background-color: #222;
+}
+
+.m-banner-img img {
+  width: 100%;
+  height: auto;
+}
+
+.banner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 1;
+}
+
+.title-container {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tvshow-title h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.more-about-tvshow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quality,
+.rating,
+.language,
+.title-bottom {
+  font-size: 14px;
+}
+
+.watch-btn {
+  background-color: #e70634;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.watch-btn:hover {
+  background-color: #bf062a;
+}
+
+/* Play Button */
+.play-btn-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.play-btn a {
+  color: #fff;
+  font-size: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 20px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.play-btn a:hover {
+  background-color: #e70634;
+}
+
+/* Trailer Popup */
+.play {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.play .close-movie {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.play-movie iframe {
+  border-radius: 10px;
+}
+
+/* TV Show Description */
+.tvshow-details {
+  padding: 20px;
+  background-color: #333;
+}
+
+.tvshow-details strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tvshow-details p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Screenshots */
+.screenshots {
+  padding: 20px;
+  background-color: #333;
+}
+
+.screenshots strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.screen-s-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.screen-s-container img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.screen-s-container img:hover {
+  transform: scale(1.05);
+}
+
+/* Download Section */
+.download-tvshow {
+  padding: 20px;
+  background-color: #333;
+}
+
+.download-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.download-box {
+  background: #444;
+  padding: 15px;
+  border-radius: 10px;
+  width: calc(33% - 20px);
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.download-box:hover {
+  background-color: #555;
+}
+
+.download-box i {
+  color: #e70634;
+}
+
+.download-box a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.download-box a:hover {
+  color: #e70634;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+}
+
+footer .logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+footer .logo span {
+  color: #e70634;
+}
+
+footer .copyright {
+  color: #888;
+  font-size: 14px;
+  margin-top: 10px;
+}

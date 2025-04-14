@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoviesHD</title>
+    <link rel="stylesheet" href="../styles/home.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <nav class="navigation">
+        <input type="checkbox" class="menu-btn" id="menu-btn" />
+        <label for="menu-btn" class="menu-icon">
+          <span class="nav-icon"></span>
+        </label>
+        <a href="./homepage.html" class="logo">Movies<span>HD</span></a>
+        <ul class="menu">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="./Tvshow.html">TV Shows</a></li>
+          <li><a href="./movie.html">Movie</a></li>
+          <li><a href="./login.html">Login</a></li>
+          <li><a href="./signup.html">Signup</a></li>
+          <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+        <form class="search-box" onsubmit="searchMovie(event)">
+          <input type="text" placeholder="Search Movie..." id="searchQuery" />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-text">
+          <h1>Welcome to Movies<span>HD</span></h1>
+          <p>Stream & Download your favorite movies and shows in Full HD</p>
+          <a href="./movie.html" class="btn">Browse Movies</a>
+        </div>
+      </header>
+
+      <section id="featured" class="featured-section">
+        <h2>Featured Movies</h2>
+        <div class="movie-grid" id="featuredMovies">
+          <!-- Movie cards will be added by JS -->
+        </div>
+      </section>
+
+      <footer>
+        <a href="./homepage.html" class="logo">Movies<span>HD</span></a>
+        <p>Copyright © 2025 - MoviesHD</p>
+      </footer>
+    </div>
+
+    <script>
+      const featuredMovies = [
+        {
+          image: "../images/p-2.jpeg",
+          title: "Pirates of the Caribbean",
+          genre: "Action | Adventure",
+        },
+        {
+          image: "../images/pic-4.jpeg",
+          title: "Rick and Morty",
+          genre: "Sci-Fi | Thriller",
+        },
+        {
+          image: "../images/pic-11.jpeg",
+          title: "Annente",
+          genre: "Horror | Mystery",
+        },
+        {
+          image: "../images/pic-8.jpeg",
+          title: "Wanda Vision",
+          genre: "Action | Sci-Fi",
+        },
+      ];
+
+      const movieGrid = document.getElementById("featuredMovies");
+
+      featuredMovies.forEach((movie) => {
+        const card = document.createElement("div");
+        card.className = "movie-card";
+        card.innerHTML = `
+        <img src="${movie.image}" alt="${movie.title}" />
+        <h3>${movie.title}</h3>
+        <span>${movie.genre}</span>
+      `;
+        movieGrid.appendChild(card);
+      });
+
+      function logout() {
+        sessionStorage.removeItem("loggedInUser");
+        alert("You have been logged out.");
+        window.location.href = "login.html";
+      }
+
+      function searchMovie(event) {
+        event.preventDefault();
+        const query = document.getElementById("searchQuery").value;
+        console.log(`Searching for: ${query}`);
+        // Optional: Redirect to search results page
+      }
+    </script>
+  </body>
+</html>
